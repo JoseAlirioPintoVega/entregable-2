@@ -21,8 +21,8 @@ const WeatherCard = ({weather, temp}) => {
             <h3 className='card__desciption'>"{weather?.weather[0].description}"</h3>
             <ul>
                 <li className='card__list-item'><span className='card__span'>wind speed</span> {weather?.wind.speed} m/s</li>
-                <li className='card__list-item'><i class="fa-solid fa-cloud"></i>   <span className='card__span'>Cloud:</span>{weather?.clouds.all} %</li>
-                <li className='card__list-item'><i class="fa-solid fa-temperature-three-quarters"></i>  <span className='card__span'>Presure:</span> {weather?.main.pressure} mb</li>
+                <li className='card__list-item'><i className="fa-solid fa-cloud"></i>   <span className='card__span'>Cloud:</span>{weather?.clouds.all} %</li>
+                <li className='card__list-item'><i className="fa-solid fa-temperature-three-quarters"></i>  <span className='card__span'>Presure:</span> {weather?.main.pressure} mb</li>
             </ul>
         </section>
     </div>

@@ -4,8 +4,20 @@ import { useState } from 'react'
 import './App.css'
 import imgWeather from './json/imgWeater.json'
 import WeatherCard from './components/WeatherCard'
+ import RiseLoader from "react-spinners/ClipLoader"; 
 
 function App() {
+
+  /*------------- loading------------- */
+   const [loading, setLoading] = useState(false);
+
+  /*useEffect(()=>{
+    setLoading(true);
+    setTimeout(()=>{
+      setLoading(false)
+    },5000)
+  },[]) */
+
   const [coords, setCoords] = useState()
   const [weather, setWeather] = useState()
   const [temp, setTemp] = useState()
@@ -13,7 +25,7 @@ function App() {
     
     setCoords({
       lat: pos.coords.latitude ,
-      lon: pos.coords.longitude
+      lon: pos.coords.longitude,
     })
   }
   
@@ -44,13 +56,24 @@ function App() {
       backgroundImage : `url(${imgWeather[img]})`
     } 
     
-    console.log(img)
+  
     return (
       <div  style={objStyle}  className="App">
-    <WeatherCard
-    weather={weather}
-    temp={temp}
-    />
+       {
+        !weather ?
+        <RiseLoader
+
+        color={"#123abc"}
+        loading={loading}
+        size={80}
+        data-testid="loader"
+        />
+        : 
+        <WeatherCard
+        weather={weather}
+        temp={temp}
+        />
+       }  
     </div>
   )
 }
